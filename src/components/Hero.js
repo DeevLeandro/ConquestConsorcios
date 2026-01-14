@@ -130,6 +130,9 @@ const Hero = ({ onSimulateClick }) => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Texto e CTA */}
           <div className="space-y-6 md:space-y-8">
+            <div>
+              
+            </div>
 
             {/* Título principal */}
             <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight">
