@@ -4,18 +4,18 @@ import { Car, Bike, Home, Truck, TrendingUp, Calculator } from 'lucide-react';
 const ProductSelection = ({ onProductSelect }) => {
   const products = [
     { 
-      id: 'carro', 
-      name: 'Carro', 
-      icon: <Car size={32} />, 
-      description: 'Adquira o carro dos seus sonhos com parcelas que cabem no seu bolso',
-      features: ['Até 84 meses', 'Taxa reduzida', 'Credenciamento amplo']
-    },
-    { 
       id: 'moto', 
       name: 'Moto', 
       icon: <Bike size={32} />, 
       description: 'Tenha sua moto com as melhores condições de consórcio',
       features: ['Até 60 meses', 'Entrada facilitada', 'Modelos diversos']
+    },
+    { 
+      id: 'carro', 
+      name: 'Carro', 
+      icon: <Car size={32} />, 
+      description: 'Adquira o carro dos seus sonhos com parcelas que cabem no seu bolso',
+      features: ['Até 84 meses', 'Taxa reduzida', 'Credenciamento amplo']
     },
     { 
       id: 'casa', 
@@ -29,7 +29,7 @@ const ProductSelection = ({ onProductSelect }) => {
       name: 'Caminhão', 
       icon: <Truck size={32} />, 
       description: 'Invista no seu negócio com um caminhão próprio',
-      features: ['Até 120 meses', 'Manutenção inclusa', 'Frota atualizada']
+      features: ['Até 156 meses', 'Manutenção inclusa', 'Frota atualizada']
     },
     { 
       id: 'investimento', 
@@ -45,7 +45,7 @@ const ProductSelection = ({ onProductSelect }) => {
     investimento: { min: 100000, max: 2000000 },
     carro: { min: 30000, max: 300000 },
     moto: { min: 12000, max: 100000 },
-    caminhao: { min: 150000, max: 500000 }
+    caminhao: { min: 150000, max: 1500000 }
   };
 
   return (
@@ -113,8 +113,8 @@ const ProductSelection = ({ onProductSelect }) => {
                 <tr>
                   <td><Truck size={16} /> Caminhão</td>
                   <td>R$ 150.000</td>
-                  <td>R$ 500.000</td>
-                  <td>120 meses</td>
+                  <td>R$ 1.500.000</td>
+                  <td>156 meses</td>
                 </tr>
                 <tr>
                   <td><Home size={16} /> Casa</td>

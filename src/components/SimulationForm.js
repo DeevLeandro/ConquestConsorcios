@@ -48,8 +48,8 @@ const SimulationForm = ({ selectedProduct, onSubmit, onClose }) => {
     },
     caminhao: { 
       min: 150000, 
-      max: 500000,
-      maxInstallments: 120,
+      max: 1500000,
+      maxInstallments: 156,
       minInstallmentValue: 800,
       defaultInstallment: 12
     }

@@ -82,16 +82,12 @@ const Footer = () => {
                   <span>(54) 98166-4862</span>
                 </li>
                 <li>
-                  <Phone className="contact-icon" size={18} />
-                  <span>(54) 3301-1234</span>
-                </li>
-                <li>
                   <Mail className="contact-icon" size={18} />
-                  <span>contato@conquestconsorcios.com.br</span>
+                  <span>mentorandreifrancisconi@gmail.com</span>
                 </li>
                 <li>
                   <MapPin className="contact-icon" size={18} />
-                  <span>Av. Principal, 1234 - Centro, Passo Fundo/RS</span>
+                  <span>Av Das Hortensias 1408 Sala 03 Centro Gramado RS</span>
                 </li>
               </ul>
               <a 
@@ -114,7 +110,7 @@ const Footer = () => {
             <Heart size={16} style={{ marginRight: '5px', verticalAlign: 'middle' }} />
             &copy; {new Date().getFullYear()} Conquest Consórcios. Todos os direitos reservados.
           </p>
-          <p>CNPJ: 12.345.678/0001-90</p>
+          <p>CNPJ: 56.040.252/0001-07</p>
         </div>
       </div>
     </footer>
