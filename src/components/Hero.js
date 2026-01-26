@@ -1,4 +1,4 @@
-// components/Hero.jsx (Versão Final - Sem Three.js)
+
 import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight, Play, Pause, Shield, Award, TrendingUp, CheckCircle, Car, Home, Bike, Truck } from 'lucide-react';
 
@@ -131,7 +131,7 @@ const Hero = ({ onSimulateClick }) => {
           {/* Texto e CTA */}
           <div className="space-y-6 md:space-y-8">
             <div>
-              
+
             </div>
 
             {/* Título principal */}

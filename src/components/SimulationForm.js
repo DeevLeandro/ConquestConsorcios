@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { X, Calculator, DollarSign, Calendar, TrendingUp, AlertCircle } from 'lucide-react';
+import { X, Calculator, TrendingUp, AlertCircle } from 'lucide-react';
 
 const SimulationForm = ({ selectedProduct, onSubmit, onClose }) => {
   const [productName, setProductName] = useState('');
   const [creditValue, setCreditValue] = useState('');
   const [installmentValue, setInstallmentValue] = useState('');
-  const [installment, setInstallment] = useState('60');
+  const [installment, setInstallment] = useState('48'); // Alterado para 48 como padrão
   const [error, setError] = useState('');
 
   const productNames = {
@@ -21,30 +21,30 @@ const SimulationForm = ({ selectedProduct, onSubmit, onClose }) => {
     casa: { 
       min: 100000, 
       max: 2000000,
-      maxInstallments: 180,
+      maxInstallments: 220,
       minInstallmentValue: 500,
       defaultInstallment: 12
     },
     investimento: { 
       min: 100000, 
       max: 2000000,
-      maxInstallments: 180,
+      maxInstallments: 220,
       minInstallmentValue: 500,
       defaultInstallment: 12
     },
     carro: { 
       min: 30000, 
       max: 300000,
-      maxInstallments: 84,
+      maxInstallments: 120, // Alterado para 120
       minInstallmentValue: 400,
-      defaultInstallment: 12
+      defaultInstallment: 48 // Alterado para 48 como padrão
     },
     moto: { 
       min: 12000,
       max: 100000,
-      maxInstallments: 60,
-      minInstallmentValue: 350,
-      defaultInstallment: 12
+      maxInstallments: 120, // Alterado para 120
+      minInstallmentValue: 250,
+      defaultInstallment: 48 // Alterado para 48 como padrão
     },
     caminhao: { 
       min: 150000, 
@@ -60,8 +60,14 @@ const SimulationForm = ({ selectedProduct, onSubmit, onClose }) => {
     if (!selectedProduct) return [];
     
     const config = productConfigs[selectedProduct];
-    const baseOptions = [12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 156, 168, 180];
     
+    // Para Carro e Moto, apenas as parcelas específicas
+    if (selectedProduct === 'carro' || selectedProduct === 'moto') {
+      return [48, 100, 120]; // Apenas estas 3 opções
+    }
+    
+    // Para outros produtos, mantém a lógica original
+    const baseOptions = [12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 156, 168, 180, 200,220];
     return baseOptions.filter(option => option <= config.maxInstallments);
   };
 
@@ -70,8 +76,16 @@ const SimulationForm = ({ selectedProduct, onSubmit, onClose }) => {
       setProductName(productNames[selectedProduct]);
       const config = productConfigs[selectedProduct];
       setCreditValue(config.min);
-      setInstallment(config.defaultInstallment.toString());
-      calculateInstallment(config.min, config.defaultInstallment);
+      
+      // Define a parcela padrão baseada no produto
+      if (selectedProduct === 'carro' || selectedProduct === 'moto') {
+        setInstallment('48'); // 48x como padrão para carro e moto
+        calculateInstallment(config.min, 48);
+      } else {
+        setInstallment(config.defaultInstallment.toString());
+        calculateInstallment(config.min, config.defaultInstallment);
+      }
+      
       setError('');
     }
   }, [selectedProduct]);
@@ -117,7 +131,7 @@ const SimulationForm = ({ selectedProduct, onSubmit, onClose }) => {
 
   const calculateInstallment = (value, period) => {
     const numericValue = parseFloat(value) || 0;
-    const numericPeriod = parseInt(period) || 60;
+    const numericPeriod = parseInt(period) || 48; // Alterado para 48 como padrão
     
     // Cálculo simplificado considerando taxa administrativa de 15%
     const installmentValue = (numericValue / numericPeriod) * 1.15;
@@ -249,7 +263,7 @@ const SimulationForm = ({ selectedProduct, onSubmit, onClose }) => {
     }
     
     if (selectedProduct === 'moto') {
-      const motoValues = [10000, 25000, 50000, 75000, 100000];
+      const motoValues = [12000, 25000, 50000, 75000, 100000];
       return motoValues.filter(v => v <= max);
     }
     
@@ -365,6 +379,11 @@ const SimulationForm = ({ selectedProduct, onSubmit, onClose }) => {
                     <option key={option} value={option}>{option} meses</option>
                   ))}
                 </select>
+                {selectedProduct === 'carro' || selectedProduct === 'moto' ? (
+                  <div className="installment-info">
+                    <small>Apenas disponíveis: 48, 100 e 120 meses</small>
+                  </div>
+                ) : null}
               </div>
             </div>
             

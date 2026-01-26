@@ -1,28 +1,28 @@
 import React from 'react';
-import { Car, Bike, Home, Truck, TrendingUp, Calculator } from 'lucide-react';
+import { Car, Home, Truck, TrendingUp, Calculator, Motorbike } from 'lucide-react';
 
 const ProductSelection = ({ onProductSelect }) => {
   const products = [
     { 
       id: 'moto', 
       name: 'Moto', 
-      icon: <Bike size={32} />, 
+      icon: <Motorbike size={32} />, 
       description: 'Tenha sua moto com as melhores condições de consórcio',
-      features: ['Até 60 meses', 'Entrada facilitada', 'Modelos diversos']
+      features: ['Até 120 meses', 'Entrada facilitada', 'Modelos diversos']
     },
     { 
       id: 'carro', 
       name: 'Carro', 
       icon: <Car size={32} />, 
       description: 'Adquira o carro dos seus sonhos com parcelas que cabem no seu bolso',
-      features: ['Até 84 meses', 'Taxa reduzida', 'Credenciamento amplo']
+      features: ['Até 120 meses', 'Taxa reduzida', 'Credenciamento amplo']
     },
     { 
       id: 'casa', 
       name: 'Casa', 
       icon: <Home size={32} />, 
       description: 'Realize o sonho da casa própria de forma inteligente',
-      features: ['Até 180 meses', 'Crédito de R$ 100k a 2M', 'Aprovação facilitada']
+      features: ['Até 220 meses', 'Crédito de R$ 100k a 2M', 'Aprovação facilitada']
     },
     { 
       id: 'caminhao', 
@@ -36,7 +36,7 @@ const ProductSelection = ({ onProductSelect }) => {
       name: 'Investimento', 
       icon: <TrendingUp size={32} />, 
       description: 'Invista de forma segura e planejada para o futuro',
-      features: ['Até 180 meses', 'Rendimento garantido', 'Resgate facilitado']
+      features: ['Até 220 meses', 'Rendimento garantido', 'Resgate facilitado']
     },
   ];
 
@@ -99,7 +99,7 @@ const ProductSelection = ({ onProductSelect }) => {
               </thead>
               <tbody>
                 <tr>
-                  <td><Bike size={16} /> Moto</td>
+                  <td><Motorbike size={16} /> Moto</td>
                   <td>R$ 12.000</td>
                   <td>R$ 100.000</td>
                   <td>60 meses</td>
@@ -120,13 +120,13 @@ const ProductSelection = ({ onProductSelect }) => {
                   <td><Home size={16} /> Casa</td>
                   <td>R$ 100.000</td>
                   <td>R$ 2.000.000</td>
-                  <td>180 meses</td>
+                  <td>220 meses</td>
                 </tr>
                 <tr>
                   <td><TrendingUp size={16} /> Investimento</td>
                   <td>R$ 100.000</td>
                   <td>R$ 2.000.000</td>
-                  <td>180 meses</td>
+                  <td>220 meses</td>
                 </tr>
               </tbody>
             </table>
